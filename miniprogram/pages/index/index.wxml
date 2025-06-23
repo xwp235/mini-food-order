@@ -1,0 +1,40 @@
+<!--index.wxml-->
+
+<!-- 轮播图 Start -->
+<c-banner list="{{bannerList}}"/>
+<!-- 轮播图 End -->
+
+<!-- 登录用户信息 Start -->
+<view class="home-user-container">
+  <view class="home-user-wrapper flex-space-between-center">
+     <!-- 左侧区域 Start -->
+     <view class="user-info flex-row-align-center">
+       <image class="avatar" src="{{member.avatarUrl || '/assets/images/avatar.png'}}"/>
+       <view wx:if="{{logined}}" class="nickname">
+         <text class="text-one">{{member.nickname || '请设置昵称'}}</text>
+         <text class="iconfont icon-arrow-right"></text>
+       </view>
+       <view wx:else class="need-login-tip">
+         <text>欢迎您，请登录</text>
+       </view>
+     </view>
+     <!-- 左侧区域 End -->
+     <!-- 右侧区域 Start -->
+     <view class="home-menu-action flex-row-end">
+       <view class="flex-column-center btn-item" bind:tap="navTo"
+       data-logined data-url="/pages/member-code/member-code">
+         <text class="iconfont icon-qrcode"></text>
+         <text>会员码</text>
+       </view>
+       <view class="flex-column-center btn-item"
+       bind:tap="toOrderPage"
+       data-logined>
+         <text class="iconfont icon-order"></text>
+         <text>订单</text>
+       </view>
+     </view>
+     <!-- 右侧区域 End -->
+  </view>
+</view>
+<!-- 登录用户信息 End -->
+

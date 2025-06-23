@@ -1,0 +1,117 @@
+page {
+  // 页面背景色
+  background-color: var(--page-bg-color);
+}
+
+.view-hover {
+    opacity: 0.5;
+}
+
+// 隐藏页面纵向滚动条
+.none-scorllbar {
+  height: 100vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+/** ===== flex 布局 =======*/
+
+.flex-row {
+ display:flex;
+ flex-direction: row;
+}
+
+.flex-row-end {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+.flex-row-nowrap {
+ display:flex;
+ flex-direction: row;
+ flex-wrap: nowrap;
+}
+
+.flex-row-wrap {
+ display:flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+.flex-column{
+ display:flex;
+ flex-direction: column;
+}
+
+
+.flex-center{
+ display:flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.flex-row-center {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.flex-row-align-center {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-column-center {
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.flex-space-between {
+ display:flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+
+.flex-space-between-center {
+ display:flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.flex-column-space-between {
+ display:flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+// 一行显示，超出显示省略号...
+.text-one {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+
+.fixed-bottom {
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 0 .3rem #e8e8e8;
+  padding: 26rpx 26rpx env(safe-area-inset-bottom) 26rpx;
+}
+

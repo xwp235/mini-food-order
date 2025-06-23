@@ -1,0 +1,12 @@
+<swiper class="swiper-container"
+autoplay circular indicator-dots indicator-color="#e7e7e7"
+indicator-active-color="#fff"
+interval="5000"
+style="--swiper-height: {{height}};--dots-bottom:{{dotsBottom}};"
+>
+  <swiper-item class="swiper-item" wx:for="{{list}}" wx:key="index">
+    <navigator class="swiper-item-link-to">
+      <image class="swiper-item-image" src="/assets/images/banner{{index}}.png"/>
+    </navigator>
+  </swiper-item>
+</swiper>

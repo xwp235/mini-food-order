@@ -1,0 +1,16 @@
+/* 定义 css 变量 */
+page {
+  --page-bg-color: #f9f9f9; /* 页面背景色 */
+  --primary-color: #e40030;
+  --primary-color-hover: rgba(228, 0, 48, 0.4);
+  --basic-border-color: #f9f9f9; //f9f9f9;
+  --basic-border: 1px solid var(--basic-border-color, #f9f9f9);
+  --basic-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, .12); /*阴影*/
+  
+  // 自定义导航栏
+  --navbar-background-color: #f9f9f9;
+  --navbar-height: 35px;
+  
+  // weapp组件库中的 stepper 组件中使用disable-input禁用输入框时，字体颜色
+  --stepper-input-disabled-text-color: #222;
+}

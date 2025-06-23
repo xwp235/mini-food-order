@@ -1,0 +1,23 @@
+
+// 主按钮样式
+button[type=primary] {
+  background-color: var(--primary-color);
+  &[disabled] {
+    background-color: var(--primary-color-hover);
+  }
+  &[loading] {
+    background-color: var(--primary-color-hover);
+  }
+  &.button-hover {
+    background-color: var(--primary-color-hover);
+  }
+  &[plain] { // 按钮镂空
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    &.button-hover {
+      border-color: var(--primary-color-hover);
+      color: var(--primary-color-hover);
+    }
+  }
+}
