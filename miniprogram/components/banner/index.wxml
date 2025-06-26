@@ -3,10 +3,11 @@ autoplay circular indicator-dots indicator-color="#e7e7e7"
 indicator-active-color="#fff"
 interval="5000"
 style="--swiper-height: {{height}};--dots-bottom:{{dotsBottom}};"
+wx:if="list.length"
 >
-  <swiper-item class="swiper-item" wx:for="{{list}}" wx:key="index">
-    <navigator class="swiper-item-link-to" hover-class="none">
-      <image class="swiper-item-image" src="/assets/images/banner{{index}}.png"/>
+  <swiper-item class="swiper-item" wx:for="{{list}}" wx:key="_id">
+    <navigator class="swiper-item-link-to" hover-class="none" url="{{item.link}}" open-type="{{item.openType}}">
+      <image class="swiper-item-image" src="{{item.imageUrl}}"/>
     </navigator>
   </swiper-item>
 </swiper>

@@ -8,7 +8,8 @@
     "pages/member-code/member-code",
     "pages/login/login",
     "pages/recharge/recharge",
-    "pages/store-list/store-list"
+    "pages/store-list/store-list",
+    "pages/goods-detail/goods-detail"
   ],
   "usingComponents": {
     "v-button": "@vant/weapp/button"

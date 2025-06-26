@@ -10,9 +10,9 @@
   <view class="scroll-area">
       <scroll-view class="scroll-view" scroll-x="true">
          <view class="scroll-view-inner"
-        wx:for="{{list}}" wx:key="index">
-            <navigator class="link" hover-class="none">
-              <image class="item-img" src="/assets/images/hot{{index+1}}.png"/>
+        wx:for="{{list}}" wx:key="_id">
+            <navigator class="link" hover-class="none" url="{{item.link}}" open-type="{{item.openType}}">
+              <image class="item-img" src="{{item.imageUrl}}"/>
             </navigator>
          </view>
       </scroll-view>
