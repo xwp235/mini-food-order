@@ -6,7 +6,9 @@
     "pages/shopping/shopping",
     "pages/order-list/order-list",
     "pages/member-code/member-code",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/recharge/recharge",
+    "pages/store-list/store-list"
   ],
   "usingComponents": {
     "v-button": "@vant/weapp/button"
@@ -45,6 +47,6 @@
   "componentFramework": "glass-easel",
   "lazyCodeLoading": "requiredComponents",
   "resolveAlias": {
-      "@/*": "/*"
+    "@/*": "/*"
   }
 }

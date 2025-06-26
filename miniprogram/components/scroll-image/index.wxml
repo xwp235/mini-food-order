@@ -1,0 +1,20 @@
+<!--components/scroll-image/index.wxml-->
+<view class="scroll-image-container" wx:if="list.length">
+  <view class="title-box flex-space-between">
+    <text>{{title}}</text>
+    <view class="more" bind:tap="onMoreChange">
+      <text>{{moreText}}</text>
+      <text class="iconfont icon-arrow-right"></text>
+    </view>
+  </view>
+  <view class="scroll-area">
+      <scroll-view class="scroll-view" scroll-x="true">
+         <view class="scroll-view-inner"
+        wx:for="{{list}}" wx:key="index">
+            <navigator class="link" hover-class="none">
+              <image class="item-img" src="/assets/images/hot{{index+1}}.png"/>
+            </navigator>
+         </view>
+      </scroll-view>
+    </view>
+</view>

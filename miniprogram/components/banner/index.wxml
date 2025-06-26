@@ -5,7 +5,7 @@ interval="5000"
 style="--swiper-height: {{height}};--dots-bottom:{{dotsBottom}};"
 >
   <swiper-item class="swiper-item" wx:for="{{list}}" wx:key="index">
-    <navigator class="swiper-item-link-to">
+    <navigator class="swiper-item-link-to" hover-class="none">
       <image class="swiper-item-image" src="/assets/images/banner{{index}}.png"/>
     </navigator>
   </swiper-item>

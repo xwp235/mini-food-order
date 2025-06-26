@@ -17,7 +17,7 @@ App<IAppOption>({
   },
   current() {
       return {
-          logined: true
+          logined: false
       }
   }
 })

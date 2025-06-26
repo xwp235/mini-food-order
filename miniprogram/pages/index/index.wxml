@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<view class="none-scrollbar">
 
 <!-- 轮播图 Start -->
 <c-banner list="{{bannerList}}"/>
@@ -38,3 +39,49 @@
 </view>
 <!-- 登录用户信息 End -->
 
+<!-- 快捷菜单区域 Start -->
+<view class="home-quick-menu">
+   <!-- 上方区域 Start -->
+   <view class="top-area flex-row-center">
+      <view bind:tap="toShoppingPage"
+      data-order-type="{{1}}"
+      class="store-pick-up top-area-item">
+        <image class="img" src="/assets/images/store.png"/>
+        <text class="title">到店自取</text>
+      </view>
+      <view bind:tap="toShoppingPage"
+      data-order-type="{{2}}"
+      class="take-out top-area-item">
+        <image class="img" src="/assets/images/rider.png"/>
+        <text class="title">外送上门</text>
+      </view>
+   </view>
+   <!-- 上方区域 End -->
+   <!-- 下方区域 Start -->
+   <view class="bottom-area flex-row-align-center">
+     <view class="bottom-area-item  flex-column-center" bind:tap="navTo" data-url="/pages/recharge/recharge">
+       <image class="img" src="/assets/images/recharge.png" />
+       <text class="name">账户充值</text>
+       <text class="intro">充值更优惠</text>
+     </view>
+     <view class="bottom-area-item  flex-column-center" bind:tap="navTo" data-url="/pages/store-list/store-list">
+       <image class="img" src="/assets/images/store-map.png" />
+       <text class="name">附近门店</text>
+       <text class="intro">找店更便捷</text>
+     </view>
+     <button open-type="share" class="bottom-area-item flex-column-center bottom-area-item-btn">
+       <image class="img" src="/assets/images/brand.png" />
+       <text class="name">分享有礼</text>
+       <text class="intro">分享更快乐</text>
+     </button>
+   </view>
+   <!-- 下方区域 End -->
+</view>
+<!-- 快捷菜单区域 End -->
+
+<!-- 热门推荐 Start -->
+<c-scroll-image list="{{hotList}}" title="热门推荐"
+more-text="更多" bind:click-more="toShoppingPage"/>
+<!-- 热门推荐 End -->
+
+</view>

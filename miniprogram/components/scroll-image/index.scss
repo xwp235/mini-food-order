@@ -1,0 +1,41 @@
+.scroll-image-container {
+    margin-top: 30rpx;
+    .title-box {
+        margin:0 30rpx;
+        font-size: 36rpx;
+        color: #555;
+        font-weight: bold;
+        align-items: center;
+        .more {
+            color:#a3a3a3;
+            font-size: 28rpx;
+            font-weight: normal;
+            .iconfont {
+                font-size: 30rpx;
+            }
+        }
+    }
+    .scroll-area {
+        margin-top: 5rpx;
+        padding-left: 30rpx;
+        .scroll-view {
+            white-space: nowrap;
+            height: 260rpx;
+            .scroll-view-inner {
+                height: 220rpx;
+                margin: 20rpx 0;
+                display: inline-block;
+                .link {
+                    height: 100%;
+                    margin-right: 30rpx;
+                    .item-img {
+                        width: 600rpx;
+                        height: 100%;
+                        border-radius: 16rpx;
+                        box-shadow: 2px 2px 6px #c9c9c9;
+                    }
+                }
+            }
+        }
+    }
+}
