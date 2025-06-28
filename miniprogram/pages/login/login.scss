@@ -1,1 +1,47 @@
 /* pages/login/login.wxss */
+
+.login-container {
+    .logo-area {
+        height: 400rpx;
+        .logo-img {
+          width: 230rpx;
+          height: 230rpx;
+          border-radius: 100%;
+          overflow: hidden;
+        }
+    }
+    .advert {
+        font-size: 32rpx;
+        font-weight: 500;
+    }
+    .login-form {
+        width: 600rpx;
+        margin: 80rpx 0 30rpx;
+        .btn-login {
+            width: 100%;
+        }
+    }
+    .agree-area {
+      font-size: 26rpx;
+      color: #666;
+      justify-content: space-around;
+      .chx-agree {
+          .wx-checkbox-input {
+              border-radius: 100%;
+              height: 27rpx;
+              width: 27rpx;
+              &.wx-checkbox-input-checked {
+                border-radius: 100%;
+                background-color: var(--primary-color);
+                border-color: var(--primary-color);
+                &:before {
+                    color: #fff;
+                }
+              }
+          }
+      }
+      .protocol  {
+          color:var(--primary-color);
+      }
+    }
+}

@@ -9,7 +9,8 @@
     "pages/login/login",
     "pages/recharge/recharge",
     "pages/store-list/store-list",
-    "pages/goods-detail/goods-detail"
+    "pages/goods-detail/goods-detail",
+    "pages/user-info/user-info"
   ],
   "usingComponents": {
     "v-button": "@vant/weapp/button"

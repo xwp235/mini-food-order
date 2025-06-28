@@ -9,11 +9,12 @@
 <view class="home-user-container">
   <view class="home-user-wrapper flex-space-between-center">
      <!-- 左侧区域 Start -->
-     <view class="user-info flex-row-align-center">
+     <view class="user-info flex-row-align-center"
+     bind:tap="navTo" data-url="/pages/user-info/user-info" data-logined>
        <image class="avatar" src="{{member.avatarUrl || '/assets/images/avatar.png'}}"/>
        <view wx:if="{{logined}}" class="nickname">
          <text class="text-one">{{member.nickname || '请设置昵称'}}</text>
-         <text class="iconfont icon-arrow-right"></text>
+         <text wx:if="{{!logined}}" class="iconfont icon-arrow-right"></text>
        </view>
        <view wx:else class="need-login-tip">
          <text>欢迎您，请登录</text>

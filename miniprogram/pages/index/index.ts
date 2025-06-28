@@ -5,8 +5,8 @@ import {getAdvertList} from '@/api/AdvertApi'
 
 Page({
   data: {
-      bannerList: null,
-      hotList: null,
+      bannerList: [],
+      hotList: [],
       member: null,
       logined: false
   },
@@ -20,6 +20,15 @@ Page({
       } finally {
         hideLoading()
       }
+  },
+  onShow() {
+    // 获取当前登录会员信息
+    const {logined, member} = getApp().current(false)
+    console.log('logined', logined, 'member', member)
+    this.setData({
+        member,
+        logined
+    })
   },
   navTo,
   toOrderPage,

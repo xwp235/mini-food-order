@@ -1,3 +1,7 @@
 {
+  "navigationBarTitleText": "授权登录",  
+  "navigationBarBackgroundColor": "#f9f9f9",
+  "navigationBarTextStyle": "black",
+  "disableScroll": true,
   "usingComponents": {}
 }

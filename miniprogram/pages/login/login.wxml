@@ -1,2 +1,24 @@
 <!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class="login-container flex-column-center">
+  <view class="logo-area flex-center">
+    <image src="/assets/images/logo.png" class="logo-img"/>
+  </view>
+  <text class="advert flex-row-center">成为会员，立享更多优惠</text>
+  <view class="login-form">
+    <button wx:if="{{!agree}}" bind:tap="checkAgreed" class="btn-login" type="primary">一键登录</button>
+    <!-- 已绑定手机号 快速登录 -->
+    <button wx:elif="{{hasBindMobile}}" 
+    bind:tap="onQuickLogin"
+    class="btn-login" type="primary">一键登录</button>
+    <!-- 未绑定手机号 授权后才能登录 -->
+    <button wx:else class="btn-login" type="primary" open-type="getRealtimePhoneNumber" bindgetrealtimephonenumber="onGetPhoneNumber">一键登录</button>
+  </view>
+  <view class="agree-area flex-row-align-center">
+        <switch class="chx-agree" 
+        color="red"
+        type="checkbox" model:checked="{{agree}}" id="chxAgree"></switch>
+        <label for="chxAgree" class="label-item flex-row-align-center">
+           <text>我已阅读并同意<text class="protocol protocol-privacy">《用户隐私协议》</text><text class="protocol protocol-user">《用户协议》</text></text>
+        </label>
+    </view>
+</view>
