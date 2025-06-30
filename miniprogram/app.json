@@ -13,7 +13,10 @@
     "pages/user-info/user-info"
   ],
   "usingComponents": {
-    "v-button": "@vant/weapp/button"
+    "v-button": "@vant/weapp/button",
+    "v-field": "@vant/weapp/field",
+    "v-radio-group": "@vant/weapp/radio-group",
+    "v-radio": "@vant/weapp/radio"
   },
   "tabBar": {
     "color": "#8a8a8a",
@@ -45,7 +48,6 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarBackgroundColor": "#ffffff"
   },
-  "style": "v2",
   "componentFramework": "glass-easel",
   "lazyCodeLoading": "requiredComponents",
   "resolveAlias": {

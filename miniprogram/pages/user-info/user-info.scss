@@ -1,1 +1,45 @@
 /* pages/user-info/user-info.wxss */
+.user-avatar-wrapper {
+    height: 370rpx;
+    width: 100%;
+    background-color: #fff;
+    .btn-user-avatar {
+        padding:0;
+        border-radius: 100%;
+        background-color: inherit;
+        &:after {
+            border: none;
+        }
+        .avatar-img {
+            width: 200rpx;
+            height: 200rpx;
+        }
+    }
+}
+
+.user-info-wrapper {
+    margin: 30rpx 0;
+    .picker-birthday {
+        width: 100%;
+        .picker-date-body {
+          width: 100%;
+          height: var(--cell-line-height, 24px);
+        }
+    }
+}
+
+.box-submit {
+    margin: 80rpx 60rpx;
+    .btn-submit {
+        width: 100%;
+    }
+}
+
+.box-logout {
+    margin: 180rpx auto 0;
+    padding: 10rpx;
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    width: 150rpx;
+}

@@ -7,3 +7,14 @@ export async function updateBalance(id: string, rechargeAmount: number) {
       }
   })
 }
+
+export async function getMemberById(id: string) {
+   const {result} = await wx.cloud.callFunction({
+        name: 'getById',
+        data: {
+            id,
+            collectionName: 'mxg_member'
+        }
+    })
+    return result
+}

@@ -10,7 +10,7 @@
   <view class="home-user-wrapper flex-space-between-center">
      <!-- 左侧区域 Start -->
      <view class="user-info flex-row-align-center"
-     bind:tap="navTo" data-url="/pages/user-info/user-info" data-logined>
+     bind:tap="navTo" data-url="/pages/user-info/user-info?id={{member._id}}" data-logined>
        <image class="avatar" src="{{member.avatarUrl || '/assets/images/avatar.png'}}"/>
        <view wx:if="{{logined}}" class="nickname">
          <text class="text-one">{{member.nickname || '请设置昵称'}}</text>

@@ -1,66 +1,91 @@
 // pages/user-info/user-info.ts
+
+import {getMemberById} from '@/api/MemberApi'
+import { hideLoading, isNull, msg, showLoading } from '@/utils/util'
+import {uploadFile} from '@/api/FileApi'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    member: null,  
+    tmpAvatarUrl: '',  
+    avatarUrl: '',
+    nickname: '',
+    sex: 1,
+    birthday: null,
+    mobile: '',
+    error: {
+        nickname: '',
+        sex: '',
+        birthday: '',
+        mobile: ''
+    }
+  },
+  onLoad(options) {
+    this.loadMemberData(options.id)
+  },
+  async loadMemberData(id: string) {
+    if (!id) {
+        msg('未传递必须参数id')
+        return
+    }  
+      try{
+          showLoading()
+      const {data: member} = await getMemberById(id)
+      console.log('会员信息', member)
+      const {mobile='',avatarUrl='',nickname = '',sex=1,birthday=''} = member
+      this.setData({
+          member,
+          mobile,avatarUrl,nickname,sex,birthday
+      })
+      }catch(e) {
+          msg('获取会员信息失败')
+          console.log('获取会员信息失败', e)
+      }finally{
+          hideLoading()
+      }
+  },
+  onAvatarChoosed(e) {
+    const {avatarUrl} = e.detail
+    this.setData({
+        tmpAvatarUrl: avatarUrl
+    })
+  },
+  onSexChange() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
+  async onFormSubmit(e) {
+      const formData = e.detail.value
+      const {nickname} = formData
+      this.setData({
+          nickname
+      })
+      let {sex, birthday, avatarUrl,tmpAvatarUrl} = this.data
+      let error = {}
+      console.log('nickname',nickname)
+      if (isNull(nickname)) {
+          error.nickname = '昵称不能为空'
+      }
+      if (isNull(sex)) {
+        error.sex = '请选择性别'
+      }
+      if (tmpAvatarUrl) {
+         const {fileID} = await uploadFile(tmpAvatarUrl, 'avatar')
+         console.log('cloud fileID', fileID)
+         this.setData({
+             avatarUrl: fileID,
+             tmpAvatarUrl: ''
+         })
+         avatarUrl = fileID
+      }
+      console.log(error)
+      this.setData({error})
+      // 校验未通过直接结束
+      if (Object.keys(error).length) {
+          return
+      }
+      console.log('---')
+      
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
+  onLogout() {
 
   }
 })

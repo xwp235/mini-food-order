@@ -1,2 +1,42 @@
 <!--pages/user-info/user-info.wxml-->
-<text>pages/user-info/user-info.wxml</text>
+<view class="user-avatar-wrapper flex-center">
+  <button class="btn-user-avatar" open-type="chooseAvatar" bindchooseavatar="onAvatarChoosed">
+    <image class="avatar-img" src="{{tmpAvatarUrl || avatarUrl || '/assets/images/avatar.png'}}"/>
+  </button>
+</view>
+
+<form bindsubmit="onFormSubmit">
+  <view class="user-info-wrapper">
+    <v-field 
+    value="{{nickname}}"
+    clearable label="昵称"
+    type="nickname"
+    name="nickname"
+    required
+    error-message="{{error.nickname || ''}}"
+    bind:click-icon="onIconClick" placeholder="请输入昵称"/>
+    <v-field label="性别" required>
+      <v-radio-group direction="horizontal" slot="input" model:value="{{sex}}" bind:change="onSexChange" error-message="{{error.sex || ''}}">
+        <v-radio name="{{1}}">先生</v-radio>
+        <v-radio name="{{2}}">女士</v-radio>
+      </v-radio-group>
+    </v-field>
+    <v-field label="生日" error-message="{{error.birthday || ''}}">
+      <picker class="picker-birthday" slot="input" mode="date" model:value="{{birthday}}">
+         <view class="picker-date-body">{{birthday || '请选择日期'}}</view>
+      </picker>
+    </v-field>
+  </view>
+
+  <v-field value="{{mobile}}"
+    readonly label="手机"
+    error-message="{{error.mobile || ''}}"/>
+
+  <view class="box-submit">
+    <button type="primary" form-type="submit" class="btn-submit">保存</button>
+  </view>
+</form>
+
+<view class="box-logout" bind:tap="onLogout">
+  <text>退出登录</text>
+</view>
