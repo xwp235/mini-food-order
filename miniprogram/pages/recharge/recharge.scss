@@ -1,1 +1,75 @@
 /* pages/recharge/recharge.wxss */
+
+.recharge-container {
+    .account-balance {
+        background-color: var(--primary-color);
+        height: 288rpx;
+        justify-content: center;
+        color: #fff;
+        font-size: 88rpx;
+        text {
+            &:first-child {
+                font-size: 30rpx;
+                color: #e7e4e9;
+            }
+        }
+    }
+    .charge-list {
+        color:#999;
+        font-size: 30rpx;
+        margin: 20rpx 0;
+        .list {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20rpx;
+            font-size: 26rpx;
+            text-align:center;
+            .charge-item {
+                box-sizing: border-box;
+                background-color: #fff;
+                width: 225rpx;
+                border-radius: 10rpx;
+                margin-right: 10rpx;
+                margin-bottom: 10rpx;
+                padding: 20rpx 0;
+                border-color:var(--basic-border);
+                .pay {
+                    color: var(--primary-color);
+                    font-size: 32rpx;
+                }
+                &.active {
+                    color: var(--primary-color);
+                    box-shadow: 0 0 0 1rpx var(--primary-color);
+                }
+            }
+        }
+    }
+    .desc {
+        margin: 0  20rpx;
+        font-size: 30rpx;
+        line-height: 45rpx;
+        color: #888;
+        .title  {
+                font-weight: bold;
+                line-height: 80rpx;
+        }
+    }
+    .charge-area {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom:0;
+        height: 130rpx;
+        padding-top: 40rpx;
+        background-color: #fff;
+        .btn-charge {
+            line-height: 80rpx;
+            border-radius: 50rpx;
+            width: 700rpx;
+            font-size: 30rpx;
+            color: #fff;
+        }
+    }
+}

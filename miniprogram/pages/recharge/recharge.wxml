@@ -1,2 +1,30 @@
 <!--pages/recharge/recharge.wxml-->
-<text>pages/recharge/recharge.wxml</text>
+<view class="recharge-container">
+   <view class="account-balance flex-column-center">
+     <text>余额</text>
+     <text>{{balance || '0'}}元</text>
+   </view>
+
+   <view class="charge-list">
+     <view>充值：</view>
+     <view class="list">
+        <view class="charge-item flex-column-center {{selectedChargeItem.id === item.id ? 'active': ''}}" wx:for="{{chargeList}}" wx:key="id"
+        bind:tap="onChargeItemChange" data-item="{{item}}">
+            <text class="pay">￥{{item.payAmount}}</text>
+            <text class="received">到账{{item.receivedAmount}}元</text>
+        </view>
+     </view>
+   </view>
+
+   <view class="desc">
+     <text class="title">说明：</text>
+     <text>
+       1. 充值后不可提现、退换、转让等。
+       2. 如遇无法充值、充值失败等问题，请联系商家询问。
+     </text>
+   </view>
+
+   <view class="charge-area">
+     <button type="primary" bind:tap="onCharge"class="btn-charge" loading="{{loading}}">立即充值</button>
+   </view>
+</view>

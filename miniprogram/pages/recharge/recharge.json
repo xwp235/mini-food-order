@@ -1,3 +1,8 @@
 {
+    "navigationBarBackgroundColor": "#e40030",
+    "navigationBarTitleText": "账户充值",
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#e40030",
+    "backgroundColorBottom": "#f9f9f9",
   "usingComponents": {}
 }
