@@ -1,66 +1,34 @@
 // pages/member-code/member-code.ts
+import {barcode, qrcode} from '@/utils/wxbarcode/index'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
+    data: {
+        code: '',
+        defaultLight: 0
+    },
+    onLoad() {
+        const {member} = getApp().current(true)
+        this.setData({
+            code: member.cardNo
+        })
+        barcode('#barCode', this.data.code, 600, 200)
+        qrcode('#qrCode', this.data.code, 500, 500)
+    },
+    onShow() {
+        wx.getScreenBrightness({
+            success: res=> {
+                this.setData({
+                    defaultLight: res.value
+                })
+                wx.setScreenBrightness({
+                    value: 0.7
+                })
+            }
+        })
+    },
+    onUnload() {
+        wx.setScreenBrightness({
+            value: this.data.defaultLight
+        })
+    }
 })

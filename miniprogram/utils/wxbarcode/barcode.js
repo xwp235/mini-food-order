@@ -30,7 +30,14 @@ function getBytes(str) {
     return bytes;
 }
 
-exports.code128 = function (ctx, text, width, height) {
+exports.code128 = function (selector, text, width, height) {
+
+    const query = wx.createSelectorQuery()
+    query.select(selector)
+    .fields({ node: true, size: true })
+    .exec((res) => {
+      const canvas = res[0].node
+      const ctx = canvas.getContext('2d')
 
     width = parseInt(width);
 
@@ -62,7 +69,7 @@ exports.code128 = function (ctx, text, width, height) {
         }
     }
 
-    ctx.draw();
+  })
 }
 
 
@@ -278,7 +285,7 @@ var Graphics = function(ctx, width, height) {
 
 //use native color
 Graphics.prototype._fillRect = function(x, y, width, height, color) {
-    this.ctx.setFillStyle(color)
+    this.ctx.fillStyle = color
     this.ctx.fillRect(x, y, width, height)
 }
 

@@ -745,6 +745,7 @@ var QR = (function () {
                 console.warn('No canvas provided to draw QR code in!')
                 return;
             }
+            console.log(canvas)
 
             size = size || _size || Math.min(canvas.width, canvas.height);
 
@@ -758,7 +759,7 @@ var QR = (function () {
             size = roundedSize;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.setFillStyle('#000000');
+            ctx.fillStyle = '#000000';
 
             for (var i = 0; i < width; i++) {
                 for (var j = 0; j < width; j++) {
@@ -767,7 +768,6 @@ var QR = (function () {
                     }
                 }
             }
-            ctx.draw();
         }
     }
 

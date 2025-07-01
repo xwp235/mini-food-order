@@ -1,2 +1,20 @@
 <!--pages/member-code/member-code.wxml-->
-<text>pages/member-code/member-code.wxml</text>
+<view class="qrcode-view">
+  <view class="header-box flex-center">
+    <text class="iconfont icon-saoma"></text>
+    <text class="title">快速识别会员</text>
+  </view>
+
+  <view class="code-box flex-column-center">
+    <view class="barcode-wrapper">
+      <canvas class="barcode-img" type="2d" id="barCode"/>
+    </view>
+     <text class="code-text">{{code}}</text>
+     <canvas class="qrcode-img" type="2d" id="qrCode"/>
+
+     <view class="tips flex-row-align-center">
+       <text class="iconfont icon-tishi"></text>
+       <text>本会员码会定时刷新，请勿截图，以免影响使用。</text>
+     </view>
+  </view>
+</view>

@@ -21,6 +21,7 @@ exports.main = async (event, context) => {
   // 3. 不存在 注册成为新会员
   const newMember = {
       _openid: OPENID,
+      cardNo: Date.now(),
       isAdmin: false,
       _createTime: Date.now()
   }
