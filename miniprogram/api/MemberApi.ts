@@ -18,3 +18,15 @@ export async function getMemberById(id: string) {
     })
     return result
 }
+
+export async function updateMemberById(id: string, data: any) {
+    const {result} = await wx.cloud.callFunction({
+        name: 'updateById',
+        data: {
+            id,
+            collectionName: 'mxg_member',
+            data
+        }
+    })
+    return result
+}
