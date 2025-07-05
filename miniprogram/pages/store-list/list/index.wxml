@@ -1,0 +1,36 @@
+<!--pages/store-list/list/index.wxml-->
+<scroll-view scroll-y style="height: calc(100vh - {{tabsPosTop}}px);">
+  <view class="store-list-wrapper">
+    <view wx:if="{{loading && !storeList.length}}" class="loading">加载中</view>
+    <view wx:for="{{storeList}}" wx:key="_id" bind:tap="toShoppingPage" data-store="{{item}}" class="store-item flex-row-align-center">
+      <view class="left flex-1">
+        <view>
+          <view>
+            <text class="store-name">{{item.name}}</text>
+          </view>
+          <view>
+            <text class="open-time" wx:if="{{item.businessTimes && item.businessTimes.length === 2}}">营业时间：{{item.businessTimes[0]}}-{{item.businessTimes[1]}}</text>
+          </view>
+          <view>
+            <text>直线距离{{item.distanceShow}} | </text>
+            <text>{{item.address}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="right">
+        <view class="store-act-like" catch:tap="onShopCollect" data-item="{{item}}">
+          <text class="iconfont {{item.collected ? 'icon-like_fill':'icon-like'}}"></text>
+        </view>
+        <view class="store-act-order">
+          <text>去下单</text>
+        </view>
+        <view class="store-act-other">
+          <text class="iconfont icon-daohang" catch:tap="handleLocation" data-item="{{item}}"></text>
+          <text class="iconfont icon-dianhua"
+          catch:tap="handleCall" data-item="{{item}}"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <v-empty wx:if="{{!loading && !storeList.length}}" description="暂无门店"/>
+</scroll-view>

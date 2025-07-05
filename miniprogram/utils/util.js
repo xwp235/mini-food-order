@@ -156,3 +156,9 @@ export const formatNumber = (n) => {
   const s = n.toString()
   return s[1] ? s : '0' + s
 }
+
+export const rpx2px = rpx => {
+    const { windowWidth } = wx.getWindowInfo()
+    // 手机屏幕宽度 * 小程序基准宽度 * 要转换的rpx值
+    return windowWidth / 750 * rpx
+}

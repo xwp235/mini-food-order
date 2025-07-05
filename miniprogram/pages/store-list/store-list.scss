@@ -1,1 +1,45 @@
 /* pages/store-list/store-list.wxss */
+.store-search-container {
+    .van-search__content {
+        background-color: #f0f0f0;
+    }
+    .right-opt {
+        font-size: 28rpx;
+        color: #333;
+        padding-right: 20rpx;
+        .iconfont {
+            font-size: 30rpx;
+            margin-right: 6rpx;
+        }
+    }
+}
+
+.map-wrapper {
+    position: relative;
+    .map {
+      width: 100%;
+      height: 400rpx;
+    }
+    .marker {
+        position: absolute;
+        right: 20rpx;
+        bottom: 50rpx;
+        width: 80rpx;
+        height: 80rpx;
+        background-color: #fff;
+        text-align: center;
+        line-height: 80rpx;
+        border-radius: 100%;
+        .iconfont {
+            font-size: 60rpx;
+            color: #555;
+        }
+    }
+}
+
+.store-list-wrapper {
+    --tabs-nav-background-color: transparent;
+    .btn-auth-map {
+        margin-bottom: 20rpx;
+    }
+}

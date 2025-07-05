@@ -1,2 +1,38 @@
 <!--pages/store-list/store-list.wxml-->
-<text>pages/store-list/store-list.wxml</text>
+<view class="store-search-container flex-row-align-center">
+ <v-search class="flex-1" bind:tap="openMapLocation" disabled value="{{keyword}}" background="transparent" placeholder="请搜索门店"/>
+ <view class="right-opt" bind:tap="toggleShowMap">
+   <text class="iconfont icon-ditu"></text>
+   <text>{{showMap ? '收起地图': '展开地图'}}</text>
+ </view>
+</view>
+
+<view class="map-wrapper" hidden="{{!showMap}}">
+  <map class="map" id="mapEl"
+  show-location
+  scale="{{scale}}"
+  longitude="{{longitude}}"
+  latitude="{{latitude}}"
+  markers="{{markers}}"
+  bindmarkertap="onClickMarker">
+    <view class="marker" bind:tap="resetMapLocation" hover-class="view-hover">
+      <text class="iconfont icon-location"></text>
+    </view>
+  </map>
+</view>
+
+<view class="store-list-wrapper">
+  <v-tabs id="tabsEl" active="{{activeTab}}" bind:change="onTabsChange">
+    <v-tab title="附近门店" name="near">
+      <store-list wx:if="{{hasUserLocation}}" id="near" tab-name="near" longitude="{{longitude}}" latitude="{{latitude}}" tabs-pos-top="{{tabsPosTop}}" bind:updateStoreList="updateMapMarkers"/>
+      <v-empty wx:else description="请确认手机地图定位权限是否已开启"
+      image="/assets/images/store-map.png">
+         <button type="primary" class="btn-auth-map" open-type="openSetting" bindopensetting="openSettingCallback">设置权限</button>
+         <button bind:tap="resetMapLocation" class="btn-setting">刷新权限</button>
+      </v-empty>
+    </v-tab>
+    <v-tab title="收藏门店" name="collect">
+        <store-list id="collect" tab-name="collect" longitude="{{longitude}}" latitude="{{latitude}}" bind:updateStoreList="updateMapMarkers" tabs-pos-top="{{tabsPosTop}}"/>
+    </v-tab>
+  </v-tabs>
+</view>

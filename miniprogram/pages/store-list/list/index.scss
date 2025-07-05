@@ -1,0 +1,60 @@
+/* pages/store-list/list/index.wxss */
+.store-list-wrapper {
+    padding: 20rpx 26rpx;
+    .loading {
+        color: #555;
+        font-size: 26rpx;
+        text-align:center;
+        margin-bottom: 20rpx;
+    }
+    .store-item {
+        background-color: #fff;
+        border-radius: 20rpx;
+        padding: 26rpx;
+        box-shadow: var(--basic-box-shadow-light);
+        margin-bottom: 20rpx;
+        .left {
+            color: #666;
+            font-size: 24prx;
+            line-height: 40rpx;
+            border-right:var(--basic-border);
+            padding-right: 26rpx;
+            .store-name {
+                font-weight: bold;
+                color: #222;
+                font-size: 30rpx;
+            }
+        }
+        .right {
+            padding-left: 26rpx;
+            text-align:center;
+            .store-act-like {
+                .iconfont {
+                    font-size: 50rpx;
+                    color:#555;
+                    &.icon-like_fill {
+                      color: var(--primary-color);
+                    }
+                }
+            }
+            .store-act-order {
+                font-size: 24rpx;
+                color: #555;
+                padding: 10rpx 0;
+            }
+            .store-act-other {
+              .iconfont {
+                  padding: 14rpx;
+                  font-size: 30rpx;
+                  line-height: 70rpx;
+                  background-color: #f0f0f0;
+                  border-radius: 100%;
+                  color: red;
+                  &:nth-child(2n) {
+                      margin-left: 26rpx;
+                  }
+              }
+            }
+        }
+    }
+}

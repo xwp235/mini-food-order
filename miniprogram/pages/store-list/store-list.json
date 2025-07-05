@@ -1,3 +1,12 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "门店列表",  
+  "navigationBarBackgroundColor": "#f9f9f9",
+  "disableScroll": true,
+  "usingComponents": {
+    "v-search": "@vant/weapp/search",
+    "v-tabs": "@vant/weapp/tabs",
+    "v-tab": "@vant/weapp/tab",
+    "v-empty": "@vant/weapp/empty",
+    "store-list": "list"
+  }
 }

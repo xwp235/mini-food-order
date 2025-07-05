@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "v-empty": "@vant/weapp/empty"
+  }
+}

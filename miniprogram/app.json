@@ -10,7 +10,8 @@
     "pages/recharge/recharge",
     "pages/store-list/store-list",
     "pages/goods-detail/goods-detail",
-    "pages/user-info/user-info"
+    "pages/user-info/user-info",
+    "pages/store-list/list/index"
   ],
   "usingComponents": {
     "v-button": "@vant/weapp/button",
@@ -52,5 +53,14 @@
   "lazyCodeLoading": "requiredComponents",
   "resolveAlias": {
     "@/*": "/*"
+  },
+  "requiredPrivateInfos": [
+    "chooseLocation",
+    "getLocation"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序搜索附近门店和配送地址使用"
+    }
   }
 }
