@@ -1,0 +1,99 @@
+page {
+    background-color: #fff;
+}
+
+.address-list-container {
+    padding-bottom: 200rpx;
+    .address-list-box {
+       padding: 26rpx;
+       background-color: #fff;
+       .address-title-box {
+         font-size: 32rpx;
+         .address-title {
+            color: #777;
+         }
+         .add-view {
+             font-size: 30rpx;
+             color: var(--primary-color);
+             line-height: 34rpx;
+             .iconfont {
+                 font-size: 36rpx;
+                 margin-right: 6rpx;
+                 font-weight:bold;
+             }
+         }
+       }
+       .address-list {
+           margin-top:30rpx;
+           width: 100%;
+           .address-info {
+               border: 2px solid #cfcfcf;
+               border-radius: 6rpx;
+               margin-top: 20rpx;
+           }
+           .address-item {
+               padding:20rpx;
+               overflow: hidden;
+               position: relative;
+               .location-name {
+                   color: #222;
+                   font-size:34rpx;
+                   font-weight: bold;
+                   width: 80%;
+               }
+               .street-number,.contact-info {
+                   color: #999;
+                   font-size: 26rpx;
+                   margin-top: 20rpx;
+                   width: 100%;
+                   line-height: 30rpx;
+               }
+               .mobile {
+                 margin-left:20rpx;
+               }
+               .edit-view {
+                   margin-left: auto;
+                   color:#666;
+                   padding: 0 10rpx;
+                   .iconfont {
+                       font-size:30rpx;
+                       margin-right: 6rpx;
+                   }
+               }
+           }
+           .is-checked-right {
+               position: absolute;
+               top: 0;
+               right:0;
+               background-color: #fff;
+               width: 50rpx;
+               height: 50rpx;
+               line-height: 50rpx;
+               text-align:center;
+               border-end-start-radius: 6rpx;
+               .iconfont {
+                   font-size: 40rpx;
+                   font-weight: bold;
+                   color:#fff;
+               }
+           }
+           .is-checked {
+              border-color:var(--primary-color); 
+            .is-checked-right {
+                background-color: var(--primary-color);
+            }
+           }
+           .swiper-right-delete {
+               height: 100%;
+               background-color:var(--primary-color);
+               border-radius: 0 5rpx 5rpx 0;
+               color:#fff;
+               padding: 0 15rpx;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               width: 100%;
+           }
+       }
+    }
+}

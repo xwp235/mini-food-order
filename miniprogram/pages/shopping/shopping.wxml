@@ -1,2 +1,77 @@
 <!--pages/shopping.wxml-->
-<text>pages/shopping.wxml</text>
+<navbar
+fixed
+fixedFullHeight="{{false}}"
+showSearchInput="{{showSearchInput}}"
+model:height="{{navHeight}}"
+model:keyword="{{keyword}}"
+bind:clickDisabled="toSearchPage"
+bind:clear="onNavInputClear"/>
+<banner list="{{bannerList}}" height="500rpx" dotsBottom="50rpx"/>
+
+<!-- 点单信息区域 Start-->
+<view id="takeOrderWrapperEl" class="take-order-wrapper">
+  <v-sticky offset-top="{{navHeight}}" bind:scroll="onScrollStickied">
+    <view class="shop-tab-box" style="{{showSearchInput ? 'border-radius:0':'' }}">
+        <view class="shop-content flex-space-between-center">
+        <view class="shop-address flex-column text-one">
+            <!--自取 Start-->
+            <block wx:if="{{takeType === 1}}">
+              <view class="flex-row-align-center" bind:tap="navTo" data-url="/pages/store-list/store-list">
+                <image class="address-img" src="/assets/images/tangshi.png"/>
+                <view class="flex-row-align-center">
+                    <text class="address-name text-one">{{store.name || '请选择门店'}}</text>
+                    <text class="iconfont icon-arrow-right"></text>
+                </view>
+                </view>
+                <view class="shop-address-info flex-row-align-center text-one">
+                <text>自取</text>
+                <text space="nbsp"> | 直线距离{{store.distanceShow || '未知' }}</text>
+                <text wx:if="{{store.address}}"> | {{store.address}}</text>
+                </view>
+            </block>
+            <!--自取 End-->
+            <!--外送 Start-->
+            <block wx:else>
+                <view class="flex-row-align-center" bind:tap="toSelectAddress">
+            <image class="address-img take-out" src="/assets/images/waidai.png"/>
+            <view class="flex-row-align-center">
+                <text class="address-name text-one">{{ address ? address.locationName + ',' +address.streetNumber : '请选择收货地址' }}</text>
+                <text class="iconfont icon-arrow-right"></text>
+            </view>
+            </view>
+            <view class="shop-address-info flex-row-align-center text-one">
+                <text space="nbsp">外送 | </text>
+                <v-tag type="danger" plain bind:tap="navTo" data-url="/pages/store-list/store-list">
+                <text class="iconfont icon-qiehuan"></text>
+                <text>{{store.name || '请选择门店' }}</text>
+                </v-tag>
+            </view>
+            </block>
+            <!--外送 End-->
+        </view>
+        <view class="take-type-box flex-row-align-center">
+            <view class="take-type-node {{takeType === 1 ? 'is-checked' : ''}}" bind:tap="onTakeTypeChange" data-take-type="{{1}}">
+              <text>自取</text>
+            </view>
+            <view class="take-type-node {{takeType === 2 ? 'is-checked' : ''}}" bind:tap="onTakeTypeChange" data-take-type="{{2}}">
+              <text>外送</text>
+            </view>
+            <view class="take-type-bg {{takeType === 2 ? 'is-checked' : ''}}"></view>
+        </view>
+        </view>
+        <!--标签栏 Start-->
+        <view class="tab-bar flex-row">
+        <view class="tabs-box flex-row">
+            <view class="tab-item tab-item-active">
+            <text>经典菜单</text>
+            </view>
+        </view>
+        </view>
+        <!--标签栏 End-->
+    </view>
+  </v-sticky>
+</view>
+<!-- 点单信息区域 End-->
+
+<view style="height: 800px;"></view>

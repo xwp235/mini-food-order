@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationStyle": "custom",
+  "usingComponents": {
+      "navbar": "/components/navbar",
+      "banner": "/components/banner",
+      "v-tag": "@vant/weapp/tag",
+      "v-sticky": "@vant/weapp/sticky"
+  }
 }

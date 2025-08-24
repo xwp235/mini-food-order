@@ -1,0 +1,43 @@
+<!--components/navbar/index.wxml-->
+<view id="navbar" class="navbar-container {{fixed ? 'navbar--fixed': ''}} {{ showSearchInput ? '': 'navbar--transparent' }}"
+    style="padding-top: {{buttonTop}}px; background: {{background}};"
+>
+    <view class="navbar-content flex-row-align-center">
+        <!-- 左侧图标 -->
+        <view class="navbar-left" bind:tap="handleBack">
+            <text wx:if="{{ haveBack }}" class="iconfont icon-arrow-left"></text>
+            <text wx:else class="iconfont icon-home"></text>
+        </view>
+
+        <!-- 中间搜索区 -->
+        <view wx:if="{{showSearch}}" class="navbar-center-input flex-1"
+            style="margin-right: {{buttonRight}}px;"
+        >
+            <!-- 输入框 -->
+            <view wx:if="{{showSearchInput}}" class="center-input" bind:tap="handleDisabled">
+                <text class="iconfont icon-search"></text>
+                <input 
+                model:value="{{keyword}}" 
+                focus="{{focus}}" 
+                disabled="{{disabled}}" 
+                catch:confirm="confirmInput"
+                class="input" 
+                placeholder-class="input-placeholder" placeholder="请输入搜索关键字"/>
+                <!-- 清空x图标 -->
+                <text wx:if="{{keyword && keyword.length > 0}}" catch:tap="handleClear"  class="iconfont icon-delete_fill"></text>
+                <view wx:if="{{showSearchBtn}}" catch:tap="confirmInput" class="search-btn" hover-class="view-hover" hover-stay-time="800">搜索</view>
+            </view>
+
+            <!-- 搜索图标 -->
+            <view wx:else bind:tap="handleDisabled" class="navbar-right" hover-class="view-hover" hover-stay-time="800">
+                <text class="iconfont icon-search"></text>
+            </view>
+        </view>
+        <!-- 导航标题 -->
+        <view wx:else class="navbar-center-title">
+            <text>{{title}}</text>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{fixedFullHeight}}" style="height: calc(var(--navbar-height, 35px) + {{buttonTop}}px);"></view>

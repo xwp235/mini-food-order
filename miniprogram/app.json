@@ -11,7 +11,10 @@
     "pages/store-list/store-list",
     "pages/goods-detail/goods-detail",
     "pages/user-info/user-info",
-    "pages/store-list/list/index"
+    "pages/store-list/list/index",
+    "pages/search/search",
+    "pages/address-list/address-list",
+    "pages/address-edit/address-edit"
   ],
   "usingComponents": {
     "v-button": "@vant/weapp/button",

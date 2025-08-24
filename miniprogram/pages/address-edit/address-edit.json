@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "",
+    "backgroundColor": "#ffffff",
+    "backgroundColorBottom": "#f9f9f9",
+  "usingComponents": {
+      "v-field":"@vant/weapp/field",
+      "v-cell":"@vant/weapp/cell",
+      "v-radio":"@vant/weapp/radio",
+      "v-radio-group":"@vant/weapp/radio-group"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "选择收货地址",
+  "navigationBarBackgroundColor": "#e40030",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#e40030",
+  "backgroundColorBottom": "#fff",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "v-swipe-cell": "@vant/weapp/swipe-cell"
+  }
+}

@@ -1,0 +1,49 @@
+<!--pages/address-list/address-list.wxml-->
+<view class="address-list-container">
+  <view class="address-list-box">
+    <!-- 标题 Start -->
+    <view class="address-title-box flex-space-between">
+      <text class="address-title">请选择收货地址</text>
+      <view bind:tap="navTo" data-url="/pages/address-edit/address-edit" class="add-view flex-row-align-center" hover-class="view-hover" hover-stay-time="100">
+        <text class="iconfont icon-addition"></text>
+        <text>新增地址</text>
+      </view>
+    </view>
+    <!-- 标题 End  -->
+    <!-- 地址列表 Start-->
+    <view class="address-list">
+      <view class="address-info {{checkedId === item._id ? 'is-checked' : ''}}" wx:for="{{addressList}}" wx:key="_id">
+        <v-swipe-cell
+          async-close
+          bind:open="onOpenSwipe"
+          bind:close="onCloseSwipe"
+          bind:click="onAddressSelected" data-item="{{item}}"
+          right-width="{{65}}">
+          <view class="address-item flex-column">
+            <text class="location-name">{{item.locationName}}</text>
+            <text class="street-number">{{item.streetNumber}}</text>
+            <view class="contact-info flex-row-align-center">
+              <text class="name">{{item.name}}</text>
+              <text class="mobile">{{item.mobile}}</text>
+              <view class="edit-view flex-row-align-center" catch:tap="navTo" data-url="/pages/address-edit/address-edit?id={{item._id}}">
+                <text class="iconfont icon-editor"></text>
+                <text>编辑</text>
+              </view> 
+            </view>
+            <view class="is-checked-right">
+              <text class="iconfont icon-right"></text>
+            </view>
+          </view>
+          <view bind:tap="handleItemDelete" data-item="{{item}}" slot="right" class="swiper-right-delete">
+            删除
+          </view>
+        </v-swipe-cell>
+      </view>
+    </view>
+    <!-- 地址列表 End-->
+  </view>
+</view>
+
+<view class="fixed-bottom">
+  <button bind:tap="toShoppingPage" type="primary">去点单</button>
+</view>

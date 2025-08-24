@@ -1,0 +1,21 @@
+<view class="address-edit-container">
+  <v-field label="联系人" placeholder="请输入联系人姓名" model:value="{{name}}" border="{{false}}" error-message="{{error.name}}" clearable="{{true}}"/>
+
+  <v-field label=" " error-message="{{error.sex}}">
+    <v-radio-group slot="input" model:value="{{sex}}" direction="horizontal">
+        <v-radio name="{{1}}" checked-color="#e40030">先生</v-radio>
+        <v-radio name="{{2}}" checked-color="#e40030">女士</v-radio>
+    </v-radio-group>
+  </v-field>
+
+  <v-field label="手机号" model:value="{{mobile}}" placeholder="请输入手机号" error-message="{{error.mobile}}" clearable="{{true}}"/>
+
+  <v-field model:value="{{locationName}}" label="地址" placeholder="请点击选择" readonly error-message="{{error.locationName}}" 
+  right-icon="location-o" clearable="{{true}}" bind:click-input="chooseLocation" bind:click-icon="chooseLocation"/>
+
+  <v-field model:value="{{streetNumber}}" label="门牌号" placeholder="例如：3栋1单元801室" error-message="{{error.streetNumber}}" clearable="{{true}}"/>
+
+  <view class="confirm-btn">
+    <button type="primary" bind:tap="handleConfirm">确定</button>
+  </view>
+</view>

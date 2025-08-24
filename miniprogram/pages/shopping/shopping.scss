@@ -1,1 +1,110 @@
-/* pages/shopping.scss */
+/* pages/shopping/shopping.wxss */
+
+.take-order-wrapper {
+    position: relative;
+    margin-top: -30rpx;
+    .shop-tab-box {
+        background-color: #f9f9f9;
+        width: 100%;
+        height: 200rpx;
+        border-top-left-radius: 20rpx;
+        border-top-right-radius: 20rpx;
+        border-bottom: 1rpx solid #e4e4e4;
+    }
+    .shop-content  {
+        height: 140rpx;
+        padding: 0 26rpx;
+        .shop-address {
+            .address-img {
+                width: 50rpx;
+                height: 50rpx;
+                margin-right: 10rpx;
+            }
+            .address-name {
+                font-size: 40rpx;
+                font-weight: bold;
+                max-width: 380rpx;
+            }
+            .iconfont {
+                font-size: 34rpx;
+                font-weight: bold;
+            }
+        }
+        .shop-address-info {
+            font-size: 24rpx;
+            color: #999999;
+            text:first-child {
+                color: #111111;
+            }
+            .iconfont {
+                font-size: 22rpx;
+                font-weight: bold;
+                color: inherit !important;
+            }
+        }
+    }
+
+    .take-type-box {
+        background-color: #fff;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 4rpx;
+        font-size: 28rpx;
+        position: relative;
+        .take-type-node {
+            font-size: inherit;
+            width: 90rpx;
+            height: 50rpx;
+            line-height: 50rpx;
+            text-align: center;
+            z-index: 100;
+        }
+        .take-type-bg {
+            position: absolute;
+            background-color: var(--primary-color);
+            width: 90rpx;
+            height: 50rpx;
+            border-radius: 20px;
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+            z-index: 0;
+            transition: transform 0.3s cubic-bezier(0.3, 1.05, 0.4, 1.05);
+        }
+        .is-checked {
+            color: #fff !important;
+            font-weight: bold;
+           &.take-type-bg {
+                transform: translateX(90rpx);
+           }
+        }
+    }
+
+    .tab-bar {
+        padding: 0 26rpx;
+        .tabs-box {
+            width: 100%;
+            .tab-item {
+                height: 60rpx;
+                color: #999;
+                font-size: 30rpx;
+                margin-right: 30rpx;
+                position: relative;
+            }
+            .tab-item-actived {
+                color: #222;
+                font-weight: bold;
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    transition: .3s;
+                    content: "";
+                    width: 50rpx;
+                    height: 8rpx;
+                    background-color: var(--primary-color);
+                    border-radius: 30rpx;
+                }
+            }
+        }
+    }
+}
