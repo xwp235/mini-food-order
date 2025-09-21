@@ -74,4 +74,4 @@ bind:clear="onNavInputClear"/>
 </view>
 <!-- 点单信息区域 End-->
 
-<view style="height: 800px;"></view>
+<goods-list id="goodsList" sticky-top="{{stickyOffsetTop}}"></goods-list>

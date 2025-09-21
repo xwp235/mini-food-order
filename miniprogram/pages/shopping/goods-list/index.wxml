@@ -1,0 +1,23 @@
+<view class="goods-list-wrapper">
+  <!-- 左侧分类列表 -->
+  <view class="category-list-wrapper" style="top:{{stickyTop}}px;height: calc(100vh - {{stickyTop}}px);">
+    <scroll-view class="category-scroll" scroll-y show-scrollbar="{{false}}">
+      <view class="category-list">
+        <view class="category-item" wx:for="{{categoryList}}" wx:key="categoryId" bind:tap="handleCategoryClick" data-item="{{item}}">
+          <view wx:if="{{activeCategoryId === item.categoryId}}" class="category-image-view flex-center img-zoom-in">
+            <image class="category-img" src="/assets/images/category.png" lazy-load mode="scaleToFill"/>
+          </view>
+          <view class="category-text-view flex-center {{item.categoryId === activeCategoryId ? 'category-text-view-actived':''}}">
+            <text class="category-text">{{item.categoryName}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 右侧商品列表 -->
+  <view class="">
+  
+  </view>
+
+</view>

@@ -4,6 +4,7 @@
       "navbar": "/components/navbar",
       "banner": "/components/banner",
       "v-tag": "@vant/weapp/tag",
-      "v-sticky": "@vant/weapp/sticky"
+      "v-sticky": "@vant/weapp/sticky",
+      "goods-list": "goods-list"
   }
 }

@@ -1,0 +1,77 @@
+/* pages/shopping/goods-list/index.wxss */
+.goods-list-wrapper {
+    .category-list-wrapper {
+        width: 100rpx;
+        position: sticky;
+        top: 0;
+        .category-scroll {
+            height: 100%;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        .category-list {
+            padding-bottom: 600rpx;
+            .category-item {
+                padding-top: 10rpx;
+                .category-image-view{
+                  position: relative;
+                  z-index: 10;
+                  top: 16rpx;  
+                  .category-img {
+                      width: 50rpx;
+                      max-height: 50rpx;
+                  }
+                }
+                .category-text-view {
+                    padding: 16rpx 20rpx;
+                    position:relative;
+                    z-index: 1;
+                    color: #1f1a1b;
+                    .category-text {
+                        font-size: 24rpx;
+                        text-align: center;
+                        line-height: 30rpx;
+                        white-space: pre-wrap;
+                    }
+                    &::after {
+                        position: absolute;
+                        content:"";
+                        width:70%;
+                        height: 0;
+                        border-bottom: 1px solid rgb(226,225,225);
+                        bottom:-3px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        transition: .3s;
+                    }
+                }
+                .category-text-view-actived {
+                    color: #fff;
+                    background-color: var(--primary-color);
+                    font-weight: bold;
+                    border-top-right-radius: 10rpx;
+                    border-bottom-right-radius: 10rpx;
+                }
+            }
+        }
+        .img-zoom-in {
+            animation: ZoomInOut .4s forwards;
+            animation-duration: 400ms;
+        }
+    }
+  }
+
+
+
+  @keyframes ZoomInOut {
+    0% {
+    transform: rotate(10deg) scale(0);
+    }
+    75% {
+        transform: rotate(-25deg) scale(1.3);
+    }
+    100% {
+        transform: rotate(10deg) scale(1);
+    }
+}
